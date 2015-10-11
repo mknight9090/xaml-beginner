@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using RestaurantManager.Models;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace RestaurantManager.UniversalWindows
@@ -25,11 +25,20 @@ namespace RestaurantManager.UniversalWindows
         public ExpeditePage()
         {
             this.InitializeComponent();
+
+            var dM = new DataManager();
+            leftLV.ItemsSource = dM.MenuItems;
+            rightLV.ItemsSource = dM.CurrentlySelectedMenuItems;
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

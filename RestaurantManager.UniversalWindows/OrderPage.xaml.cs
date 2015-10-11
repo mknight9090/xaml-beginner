@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantManager.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace RestaurantManager.UniversalWindows
         public OrderPage()
         {
             this.InitializeComponent();
+            var dM = new DataManager();
+
+            LV.ItemsSource = dM.OrderItems;
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
